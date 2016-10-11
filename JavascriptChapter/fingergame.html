@@ -1,0 +1,32 @@
+<html>
+
+    <head>
+
+        <title>Finger Game</title>
+
+    </head>
+
+    <body>
+
+        <input type="text" id="textfield" />
+        <button id="button">Enter</button>
+
+    </body>
+
+    <script>
+
+        document.getElementById("button").onclick = function () {
+            var fingers = Math.floor(Math.random() * 6);
+            var userChoice = document.getElementById("textfield").value;
+
+            if (userChoice == fingers) {
+                alert("Correct!");
+            }
+            else {
+                alert("Incorrect! The answer was " + fingers);
+            }
+        }
+
+    </script>
+
+</html>

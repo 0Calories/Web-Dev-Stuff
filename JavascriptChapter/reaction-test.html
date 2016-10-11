@@ -1,0 +1,102 @@
+<html>
+
+    <head>
+
+        <title>Reaction test</title>
+
+        <style type="text/css">
+
+            #item {
+                position: relative;
+            }
+
+            #shapeholder {
+                width:100%;
+                height: 400px;
+            }
+
+            #start {
+                width:100px;
+                height:50px;
+                border: none;
+                background-color: #3498db;
+                border-radius: 10px;
+                color: white;
+                font-size: 16px;
+                text-decoration: none;
+
+            }
+
+            body {
+                font-family: Arial;
+                font-weight: bold;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Test Your Reactions!</h1>
+        <p>Click on the boxes and circles as quickly as you can!</p>
+        <p id="time">Your time: 0s</p>
+        <button id="start">Start Game</button>
+        <div id="shapeholder">
+            <div id="item">
+        </div>
+
+
+        </div>
+
+    </body>
+
+    <script>
+
+        //Math.random() * (max - min) + min;
+        modifyItem();
+        document.getElementById("item").onclick = itemClicked;
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        //Returns an array with the size, position, and shape of the item (0 for square, 1 for circle)
+        function generateAttributes() {
+            var size = Math.floor(Math.random() * (400 - 100) + 100);
+            var posX = Math.floor(Math.random() * (document.getElementById("shapeholder").offsetWidth - 300));
+            var posY = Math.floor(Math.random() * document.getElementById("shapeholder").offsetHeight);
+            var shape = Math.floor(Math.random() * 2);
+            var values = [size, posX, posY, shape];
+
+            return values;
+        }
+
+        function modifyItem() {
+            var attributeArray = generateAttributes();
+            document.getElementById("item").style.backgroundColor = getRandomColor();
+            document.getElementById("item").style.width = attributeArray[0] + "px";
+            document.getElementById("item").style.height = attributeArray[0] + "px";
+            document.getElementById("item").style.left = attributeArray[1] + "px";
+            document.getElementById("item").style.top = attributeArray[2] + "px";
+
+            if (attributeArray[3] === 0) {
+                document.getElementById("item").style.borderRadius = "0%";
+            }
+            else {
+                document.getElementById("item").style.borderRadius = "50%";
+            }
+        }
+
+        function itemClicked() {
+            modifyItem();
+        }
+
+    </script>
+
+</html>

@@ -1,0 +1,58 @@
+#shape {
+    position: relative;
+}
+
+#shapeholder {
+    width:100%;
+    height: 400px;
+}
+
+#start {
+    width:120px;
+    height:50px;
+    float: left;
+    border-style:solid;
+    border-color: black;
+    background-color: #3498db;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+#start:active {
+    vertical-align: top;
+    padding: 8px 13px 6px;
+    background-color: #2980b9;
+}
+
+#start:focus {outline:0;}
+
+#end {
+    width:120px;
+    height:50px;
+    float: left;
+    border-style:solid;
+    border-color: black;
+    background-color: #e74c3c;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    display: none;
+}
+
+#end:active {
+    vertical-align: top;
+    padding: 8px 13px 6px;
+    background-color: #c0392b;
+}
+
+#end:focus {outline:0;}
+
+body {
+    font-family: Arial;
+    font-weight: bold;
+}

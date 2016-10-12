@@ -1,0 +1,58 @@
+<html>
+
+    <head>
+
+        <title>jQuery Test</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <style type="text/css">
+
+            #circle {
+                width: 150px;
+                height: 150px;
+                background-color: green;
+                border-radius: 50%;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+
+        <button id="fade">Toggle me bitch</button>
+
+        <p id="faderP">This paragraph will fade when the button is pressed</p>
+
+
+        <div id="circle">
+
+        </div>
+
+        <script>
+
+            $("#fade").click(function() {
+
+                if ($("#faderP").css("display") == "none") {
+                    $("#faderP").fadeIn();
+                } else {
+                    $("#faderP").fadeOut();
+                }
+
+            })
+
+            $("#circle").click(function() {
+                $(this).animate({
+                    width: "400px",
+                    height: "400px"
+                }, 2000, function() {
+                    
+                });
+            })
+
+        </script>
+    </body>
+
+</html>

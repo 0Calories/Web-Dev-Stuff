@@ -1,0 +1,41 @@
+<html>
+
+    <head>
+
+        <title>jQuery UI</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css" />
+
+        <style>
+            #draggable { width: 150px; height: 150px; padding: 0.5em; border-style: solid; }
+            #containment-wrapper { width: 95%; height:250px; border:2px solid #ccc; padding: 10px; }
+            #resizable { width: 150px; height: 150px; padding: 0.5em; border-style: solid; }
+            #resizable h3 { text-align: center; margin: 0; }
+        </style>
+
+    </head>
+
+
+    <script>
+      $( function() {
+        $("#draggable").draggable({axis: "y", containment: "parent"});
+        $("#resizable").resizable();
+      } );
+    </script>
+
+    <body>
+
+        <div id="containment-wrapper">
+            <div id="draggable" class="ui-widget-content">
+              <p>Drag me around</p>
+            </div>
+        </div>
+
+        <div id="resizable">
+            <h3>Resize me</h3>
+        </div>
+
+    </body>
+
+</html>

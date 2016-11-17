@@ -1,0 +1,146 @@
+<html>
+
+<head>
+
+    <title>Fill out the form</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <style type="text/css">
+
+        #wrapper {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        #submitButton {
+            width: 120px;
+            margin-left: 200px;
+        }
+
+        #errorMessage {
+            color: red;
+        }
+
+        input {
+            border: 1px solid grey;
+            border-radius: 5px;
+            font-size: 24px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            position: relative;
+            float: left;
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        .formElement {
+
+        }
+
+        body {
+            font-family: Helvetica, sans-serif;
+            font-size: 130%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div id="errorMessage">
+
+        </div>
+
+        <div class="formElement">
+            <label for="email">Email</label>
+
+            <input type="text" name="email" placeholder="yourname@gmail.com" id="email" />
+        </div>
+
+        <div class="formElement">
+            <label for="phone">Telephone</label>
+
+            <input type="text" name="phone" placeholder="613-420-6969" id="phone" />
+        </div>
+
+        <div class="formElement">
+            <label for="password">Password</label>
+
+            <input type="password" name="password" id="password"/>
+        </div>
+
+        <div class="formElement">
+            <label for="confirmPass">Confirm Password</label>
+
+            <input type="password" name="confirmPass" id="confirmPass"/>
+        </div>
+
+        <div class="formElement">
+            <input type="submit" value="Sign Up" id="submitButton"/>
+        </div>
+
+    </div>
+
+    <script>
+
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+
+        $("#submitButton").click(function() {
+            var errorMessage = "";
+            var fieldsMissing = "";
+
+            if ($("#email").val() == "") {
+                fieldsMissing += "<br />Email"
+            }
+
+            if ($("#phone").val() == "") {
+                fieldsMissing += "<br />Phone number"
+            }
+
+            if ($("#password").val() == "") {
+                fieldsMissing += "<br />Password"
+            }
+
+            if ($("#confirmPass").val() == "") {
+                fieldsMissing += "<br />Confirm Password"
+            }
+
+            if (fieldsMissing != "") {
+                errorMessage += "<p>The following field(s) are missing: </p>" + fieldsMissing;
+            }
+
+            if (!isEmail($("#email").val())) {
+                errorMessage += "<p>Invalid email address</p>";
+            }
+
+            if (!$.isNumeric($("#phone").val())) {
+                errorMessage += "<p>Invalid phone number</p>";
+            }
+
+            if($("#password").val() != $("#confirmPass").val()) {
+                errorMessage += "<p>Passwords do not match</p>";
+            }
+
+            $("#errorMessage").html(errorMessage);
+
+            if (errorMessage == "") {
+                alert("nigga u did it!");
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
